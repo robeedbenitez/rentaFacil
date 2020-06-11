@@ -8,7 +8,7 @@ public class Conexion {
     public Conexion(){
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/registro","root","12345678");            
+            con=DriverManager.getConnection("jdbc:mysql://localhost:3306/rentafacil","root","");            
         } catch (Exception e) {
             System.err.println("Error"+e);
         }

@@ -13,7 +13,7 @@
     </head>
     <body>
         <div class="container">
-            <h1>Personas</h1>
+            <h1>Clientes</h1>
             <a class="btn btn-success" href="Controlador?accion=add">Agregar Nuevo</a>
             <br>
             <br>
@@ -21,25 +21,28 @@
                 <thead>
                     <tr>
                         <th class="text-center">ID</th>
-                        <th class="text-center">DNI</th>
-                        <th class="text-center">NOMBRES</th>
+                        <th class="text-center">NOMBRE</th>
+                        <th class="text-center">CEDULA</th>
+                        <th class="text-center">TELEFONO</th>
+                        <th class="text-center">DIRECCION</th>
                         <th class="text-center">ACCIONES</th>
                     </tr>
                 </thead>
                 <%
-                    PersonaDAO dao=new PersonaDAO();
-                    List<Persona>list=dao.listar();
-                    Iterator<Persona>iter=list.iterator();
-                    Persona per=null;
-                    while(iter.hasNext()){
-                        per=iter.next();
-                    
+                    PersonaDAO dao = new PersonaDAO();
+                    List<Persona> list = dao.listar();
+                    Iterator<Persona> iter = list.iterator();
+                    Persona per = null;
+                    while (iter.hasNext()) {
+                        per = iter.next();
                 %>
                 <tbody>
                     <tr>
                         <td class="text-center"><%= per.getId()%></td>
-                        <td class="text-center"><%= per.getDni()%></td>
-                        <td><%= per.getNom()%></td>
+                        <td class="text-center"><%= per.getNombre()%></td>
+                        <td class="text-center"><%= per.getCedula()%></td>
+                        <td class="text-center"><%= per.getTelefono()%></td>
+                        <td class="text-center"><%= per.getDireccion() %></td>
                         <td class="text-center">
                             <a class="btn btn-warning" href="Controlador?accion=editar&id=<%= per.getId()%>">Editar</a>
                             <a class="btn btn-danger" href="Controlador?accion=eliminar&id=<%= per.getId()%>">Remove</a>
@@ -48,7 +51,6 @@
                     <%}%>
                 </tbody>
             </table>
-
         </div>
     </body>
 </html>
